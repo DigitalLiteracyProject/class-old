@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Class | The Digital Literacy Project</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans|Lato:300,400,700,900|Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+    <!-- DLP Stylesheet -->
+    <link href="css/class.css" rel="stylesheet">
+
+  </head>
+  <body>
+  	<!-- Navbar -->
+	<div class="navbar-wrapper">
+	  <div class="container">
+		<div class="navbar navbar-fixed-top navbar-inverse">
+			<p class="navbar-brand">Welcome to &lt;Class&gt;</p>	
+			<p class="navbar-text navbar-right" style="float: right;">Signed in as <a href="#" class="navbar-link">(Teacher)</a></p>		
+		</div>
+
+	  </div>
+	</div>
+	<!-- End navbar -->
+	
+	<!-- Main container -->
+	<div class="container" style="margin-top: 50px;">
+			<div class="sidebar">
+				<h4>Notifications</h4>
+				<ul id="tasklist">
+					<li>You're doing a great job!</li>
+					<li>Maria is off task.</li>
+					<li>Samuel is off task.</li>
+					<li>You are 15 minutes behind schedule.</li>
+					<li>Joseph is off task.</li>
+				</ul>
+					<h4>Quick Links</h4>
+				<div id="today">
+					<ul>
+						<li><a href="#">Example 1</a></li>
+						<li><a href="#">Example 2</a></li>
+						<li><a href="#">Example 3</a></li>
+						<li><a href="#">Staff Solution 1</a></li>
+						<li><a href="#">Staff Solution 2</a></li>
+						<li><a href="#">Full Lesson Plan</a></li>
+					</ul>
+					<p>Don't forgot to not smile!</p>
+				</div>
+			</div>
+			<div class="content">
+
+				<div class="teacherviewframe" id="lessonframe">
+				
+					<h3>Lesson Plan</h3>
+					<hr>
+					<div class="lessonframescroll">
+						<h4>10:00 - 20:00</h4>
+						<p>
+							In order to motivate this section of the lesson, walk the students through an example in which it is tedious to make changes to a drawing. For example, suppose we want to change the size of the wheels on the car we just drew. We would have to adjust the height and width of the first ellipse then adjust the height and width of the second ellipse. Suppose we want to change the size of the wheels again. We would have to go through the same process of changing each number one at a time. Wouldn’t it be nice to only have to change one number every time we wanted to change the size of wheels?
+
+							Variables allow us to store and access information (like the diameter of wheels). You can think of a variable as a bucket with a certain label. We can store information in the bucket, and we can retrieve information from the bucket, as long as we know what the bucket is labeled.
+
+							In Processing.js, we can create a variable by writing var followed by the name we want to give the variable. We can choose pretty much any name, and it’s useful to choose a name that gives us an idea of what information the variable is storing. For example, if we want to store the diameter of the wheels, we might use the name diameter. We then have to give the variable a value to store. If we wanted the diameter to store the diameter of the wheels, we might initially set the value to 75. The full line of code would read var diameter = 75; When we create a variable like this, we call this declaring a variable.
+
+							After we declare a variable, we can change its value at any point. For example, after var diameter = 75; you could write diameter = 100; At any point after these two lines, diameter is equal to 100 instead of 75. Notice that we don’t need the var this time. We only need to put var before the name of the variable the first time we use it.
+
+							We can now use the variable diameter in our code as if it were the number 75 itself. Anytime that we see diameter in the code, we can replace it with a 75 in our minds. If we make the height and width of the ellipses diameter instead of 75, we will not be changing the behavior of the code at all. We now change the value of diameter to a different value; replace  var diameter = 75; with var diameter = 100;. With one simple change, we were able to change both ellipses’ height and width.
+
+							ellipse(125,350,diameter,diameter);
+							ellipse(275,350,diameter,diameter);
+							https://www.khanacademy.org/cs/variable-wheels/2033142719
+
+							It may be difficult for students to understand why it is necessary to declare variables before using them. Try personifying the computer: “We need to give the computer a heads up whenever we want to create a new variable. When we write var diameter = 75, we are saying, ‘’Hey, computer! I want use this new variable. It’s called diameter, and it’s value is 75. Whenever you see the word diameter, I’m really telling you to use the number 75!’”
+						</p>
+						
+					</div>
+					<p>
+						<div class="nextbutton">Next block &rarr;</div>
+					</p>
+				</div>
+				<div class="teacherviewframe" id="studentviewframe">
+				
+					<h3>Student View</h3>
+					<hr>
+					<img class="img-responsive" src="khanplaceholder.png">
+					<div class="studentstatus">
+						<h4>Currently 4 students are off task.</h4>
+						<p>
+							<div class="eyesbutton">All eyes on us!</div>
+						</p>
+					</div>
+				
+				</div>
+				
+			</div>
+			<div id="newtask">
+					<div class="newtaskblock">
+						<h4>Send a note:</h4>
+						<input type="text" style="width: 80%; margin-bottom: 10px;">
+						<input type="submit" value="Blast">
+					</div>
+					<div class="newtaskblock">
+						<h4>Send a link:</h4>
+						<input type="text" style="width: 80%; margin-bottom: 10px;">
+						<input type="submit" value="Blast">
+					</div>
+					<div class="newtaskblock">
+						<h4><a href="#">Switch to Scratch</a></h4>
+					</div>
+					<div class="newtaskblock">
+						<h4><a href="#">Switch to Processing.js</a></h4>
+					</div>
+					<div class="newtaskblock">
+						<h4><a href="#">Switch to HTML Sandbox</a></h4>
+					</div>
+			</div>
+	</div>
+   
+</body>
+</html>

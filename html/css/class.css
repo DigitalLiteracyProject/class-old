@@ -1,0 +1,179 @@
+html {
+	min-height:100%;
+	position:relative
+}
+
+body {
+    font-family: 'Droid Sans', sans-serif;
+    background-image: url(http://dlp.io/assets/images/white_wall_hash_@2X.png); 
+    background-size: 400px; 
+    background-position: initial initial; 
+    background-repeat: initial initial;
+    height: 100%;
+}
+
+.navbar {
+	height: 30px;
+}
+
+.navbar-inverse .navbar-brand {
+	color: #EEEEEE;
+}
+
+.navbar-brand {
+	font-size: 1.3em;
+	margin-left: 28px;
+}
+
+.sidebar {
+	width:20%;
+	top:0px;
+	left:0px;
+	bottom:0px;
+	position:absolute;
+	padding-top: 60px;
+	background-color:#CCCCCC;
+	border-right: 2px solid #BBBBBB;
+}
+
+#tasklist {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	max-height: 50%;
+	overflow: scroll;
+	padding-bottom: 12px;
+}
+
+.sidebar h4 {
+	text-align: center;
+}
+
+#tasklist li {
+	border-top: 1px solid #BBBBBB;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#tasklist li.currenttask {
+	background-color: #EEEE44;
+}
+
+#tasklist li.finishedtask {
+	background-color: #44EE44;
+}
+
+#today {
+	margin-top: 10px;
+	padding: 8px;
+	background-color: #F3F3F3;
+	max-height: 45%;
+	min-height: 35%;	
+}
+
+
+.content {
+	min-height:400px;
+	width:80%;
+	position:relative;
+	float:right;
+	margin-top: 10px;
+	border: 4px outset #CCCCCC;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.teacherviewframe {
+	border: 2px solid #CCCCCC;
+	background-color: #F3F3F3;
+	min-height: 370px;
+	margin: 8px;
+	width: 48%;
+}
+
+.teacherviewframe h3 {
+	padding: 4px;
+	text-align: center;
+	font-size: 1.3 em;
+	margin: 0;
+}
+
+.teacherviewframe hr {
+	color: #CCCCCC;
+	background-color: #CCCCCC;
+	height: 2px;
+	margin: 2px;
+}
+
+#lessonframe {
+	float: left;
+}
+
+.lessonframescroll {
+	background-color: #fff;
+	height: 265px;
+	overflow-y: scroll;
+	padding: 5px;
+	text-align: center;
+}
+
+#studentviewframe {
+	float: left;
+}
+
+.studentstatus {
+	background-color: #fff;
+	padding: 5px;
+	text-align: center;
+}
+
+.eyesbutton {
+	font-size: 1.6em;
+	background-color: #EEEE44;
+	border: 4px outset #CCCCCC;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.nextbutton {
+	font-size: 1.6em;
+	background-color: #FFFFFF;
+	border: 4px outset #CCCCCC;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	text-align: center;
+}
+
+#newtask {
+	min-height:120px;
+	width:80%;
+	position:relative;
+	float:right;
+	margin-top: 10px;
+	border: 2px outset #CCCCCC;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	text-align: center;	
+}
+
+.newtaskblock {
+	height: 120px;
+	background-color: #FFFFFF;
+	width: 20%;
+	border: 1px solid #CCCCCC;
+	float: left;
+}
+
+.newtaskblock h3 {
+	font-size: 1.5em;
+}
+
+.newtaskblock h4 {
+	padding-top: 10px;
+}
