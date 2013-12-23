@@ -18,11 +18,12 @@
 module.exports = {
 
     loginView: function(req, res) {
-        if(req.session.user){
-            res.send('Already signed in!');
-        } else {
-            res.view('user/login');
-        }
+        // if(req.session.user){
+        //     res.send('Already signed in!');
+        // } else {
+        //     res.view('user/login');
+        // }
+        res.view('user/login');
     },
 
     signupView: function(req, res) {
