@@ -1,2 +1,2 @@
-# sails-class
-### a Sails application
+# DLP Class
+### Working for a more productive CS learning environment
