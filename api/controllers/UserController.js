@@ -16,6 +16,22 @@
  */
 
 module.exports = {
+
+    loginView: function(req, res) {
+        if(req.session.user){
+            res.send('Already signed in!');
+        } else {
+            res.view('user/login');
+        }
+    },
+
+    signupView: function(req, res) {
+        if(req.session.user) {
+            res.send('Already signed in!');
+        } else {
+            res.view('user/signup');
+        }
+    },
     
     signup: function(req, res) {
         res.send('Welcome!');
@@ -69,6 +85,15 @@ module.exports = {
                 }
             }
         });
+    },
+
+    logout: function(req, res) {
+        if(req.session.user){
+            req.session.user = null;
+            res.send('Successfully logged out');
+        } else {
+            res.send('You must first sign in to logged out.');
+        }
     },
   
 
