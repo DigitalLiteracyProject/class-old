@@ -27,7 +27,7 @@ module.exports = {
                 console.log('Database error when creating user');
                 res.send(500, {error: 'Database Error'});
             } else if(usr) {
-                res.send(400, {error: "Username already taken"});
+                res.send(400, {error: 'Username already taken'});
             } else {
                 var bcrypt = require('bcrypt');
                 bcrypt.hash(password, 8, function(err, hash){
@@ -58,6 +58,7 @@ module.exports = {
                     bcrypt.compare(password, usr.password_hash, function(err, passwordMatches){
                         if(passwordMatches){
                             req.session.user = usr;
+                            console.log(req.session.user);
                             res.send('Successfully signed in!');
                         } else {
                             res.send(400, {error: "Wrong Username or Password!"});
