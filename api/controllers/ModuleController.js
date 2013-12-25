@@ -17,7 +17,25 @@
 
 module.exports = {
     
-  
+    index: function(req,res){
+        Module.find().done(function(err, modules){
+            res.view('module/index', {modules: modules});
+        });
+    },
+
+    show: function(req, res){
+        Save.findOne({belongs_to: req.session.user.id, module: req.params.id}).done(function(err, save){
+            if(save) {
+                console.log(save);
+                console.log(req.session.user);
+                res.view('class/main', {save: save});
+            } else {
+                Save.create({belongs_to: req.session.user.id, module: req.params.id, type: 'HTML', program: ''}).done(function(err, save){
+                    res.view('class/main', {save: save});
+                });
+            }
+        });
+    },
 
 
   /**

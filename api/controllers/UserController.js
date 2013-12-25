@@ -18,12 +18,11 @@
 module.exports = {
 
     loginView: function(req, res) {
-        // if(req.session.user){
-        //     res.send('Already signed in!');
-        // } else {
-        //     res.view('user/login');
-        // }
-        res.view('user/login');
+        if(req.session.user){
+            res.redirect('modules');
+        } else {
+            res.view('user/login');
+        }
     },
 
     signupView: function(req, res) {
@@ -75,8 +74,7 @@ module.exports = {
                     bcrypt.compare(password, usr.password_hash, function(err, passwordMatches){
                         if(passwordMatches){
                             req.session.user = usr;
-                            console.log(req.session.user);
-                            res.send('Successfully signed in!');
+                            res.redirect('/modules');
                         } else {
                             res.send(400, {error: "Wrong Username or Password!"});
                         }
@@ -91,7 +89,7 @@ module.exports = {
     logout: function(req, res) {
         if(req.session.user){
             req.session.user = null;
-            res.send('Successfully logged out');
+            res.redirect('/login');
         } else {
             res.send('You must first sign in to logged out.');
         }

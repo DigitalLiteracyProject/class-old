@@ -9,6 +9,7 @@
 var Save = {
     attributes: {
         belongs_to: 'INTEGER',
+        module: 'INTEGER',
         type: 'STRING',
         program: 'STRING'
     }

@@ -22,4 +22,22 @@ $(function(){
         updateHTMLOutput();
     });
 
+    // set the intial save cache for more efficient autosave
+    var saveCache = html_editor.getValue();
+
+    // checks if the program has changed (by checking agianst cache)
+    // if it has changed, then update with socket magic!
+    function autosave(){
+        if(html_editor.getValue() == saveCache){
+            return;
+        } else {
+            saveCache = html_editor.getValue();
+            socket.put('/save/' + saveID, {program: html_editor.getValue()}, function(response){
+                console.log(response);
+            });
+        }
+    }
+
+    setInterval(autosave, 1000);
+
 });

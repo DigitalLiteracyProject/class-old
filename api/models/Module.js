@@ -8,6 +8,8 @@
 
 var Module = {
     attributes: {
+        title: 'STRING',
+        description: 'STRING',
         tasks: 'ARRAY',
         notes: 'STRING',
         deliverables: 'ARRAY',

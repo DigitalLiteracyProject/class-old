@@ -89,7 +89,6 @@ body {
     position: relative;
     width: 50%;
     float: left;
-    border: 2px solid red;
     height: 100%;
 }
 
@@ -98,7 +97,6 @@ body {
     width: 50%;
     float: right;
     height: 100%;
-    border: 2px solid blue;
     height: 100%;
 }
 
@@ -204,4 +202,15 @@ body {
 
 .newtaskblock h4 {
     padding-top: 10px;
+}
+
+.centered {
+    margin: 0 auto;
+}
+
+form.auth {
+    border: 2px solid gray;
+    padding: 10px;
+    background-color: gray;
+    width: 300px;
 }

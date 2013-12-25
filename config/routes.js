@@ -32,9 +32,7 @@ module.exports.routes = {
   // located at `views/home/index.ejs`
   // 
   // (This would also work if you had a file at: `/views/home.ejs`)
-  '/': {
-    view: 'user/login'
-  },
+  '/': 'UserController.loginView',
 
   'get /signup': 'UserController.signupView',
   'post /signup': 'UserController.signup',
@@ -44,7 +42,10 @@ module.exports.routes = {
 
   'get /logout': 'UserController.logout',
 
-  'get /class': 'MainController.class'
+  'get /class': 'MainController.class',
+
+  'get /modules': 'ModuleController.index',
+  'get /modules/:id': 'ModuleController.show'
 
 
 
