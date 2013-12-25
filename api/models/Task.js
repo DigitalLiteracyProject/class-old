@@ -6,14 +6,13 @@
  * @docs		:: http://sailsjs.org/#!documentation/models
  */
 
-module.exports = {
-
-  attributes: {
-  	
-  	/* e.g.
-  	nickname: 'string'
-  	*/
-    
-  }
-
+var Task = {
+    attributes: {
+        title: 'STRING',
+        description: 'STRING',
+        language: 'STRING',
+        validation: 'STRING'
+    }
 };
+
+module.exports = Task;

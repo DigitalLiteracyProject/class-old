@@ -6,14 +6,10 @@
  * @docs		:: http://sailsjs.org/#!documentation/models
  */
 
-module.exports = {
-
-  attributes: {
-  	
-  	/* e.g.
-  	nickname: 'string'
-  	*/
-    
-  }
-
+var Quiz = {
+    attributes: {
+        link: 'STRING'
+    }
 };
+
+module.exports = Quiz;

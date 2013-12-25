@@ -6,14 +6,12 @@
  * @docs		:: http://sailsjs.org/#!documentation/models
  */
 
-module.exports = {
-
-  attributes: {
-  	
-  	/* e.g.
-  	nickname: 'string'
-  	*/
-    
-  }
-
+var Class = {
+    attributes: {
+        students: 'ARRAY',
+        teachers: 'ARRAY',
+        lessons: 'ARRAY'
+    }
 };
+
+module.exports = Class;

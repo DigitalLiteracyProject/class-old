@@ -73,15 +73,42 @@ body {
 
 
 .content {
-    min-height:400px;
+    height: 90%;
     width:80%;
-    position:relative;
+    left: 20%;
+    position:absolute;
     float:right;
-    margin-top: 10px;
+    margin-top: 0;
     border: 4px outset #CCCCCC;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+}
+
+#left-panel {
+    position: relative;
+    width: 50%;
+    float: left;
+    border: 2px solid red;
+    height: 100%;
+}
+
+#right-panel {
+    position: relative;
+    width: 50%;
+    float: right;
+    height: 100%;
+    border: 2px solid blue;
+    height: 100%;
+}
+
+#html-editor {
+    height: 100%;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .teacherviewframe {

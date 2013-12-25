@@ -17,7 +17,7 @@
 
 module.exports = {
     class: function(req, res){
-        res.send('Successfully entered the class');
+        res.view('class/main');
     },
   
 

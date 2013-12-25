@@ -6,14 +6,12 @@
  * @docs		:: http://sailsjs.org/#!documentation/models
  */
 
-module.exports = {
-
-  attributes: {
-  	
-  	/* e.g.
-  	nickname: 'string'
-  	*/
-    
-  }
-
+var Save = {
+    attributes: {
+        belongs_to: 'INTEGER',
+        type: 'STRING',
+        program: 'STRING'
+    }
 };
+
+module.exports = Save;
