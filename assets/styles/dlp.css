@@ -102,8 +102,9 @@ body {
     height: 100%;
 }
 
-#html-editor {
+#html-editor, #html-output {
     height: 100%;
+    width:100%;
     position: relative;
     top: 0;
     bottom: 0;
