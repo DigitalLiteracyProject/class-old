@@ -1,5 +1,5 @@
 /**
- * app.js
+ * class.js
  *
  * This file contains some conventional defaults for working with Socket.io + Sails.
  *

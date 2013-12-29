@@ -1,5 +1,8 @@
 $(function(){
 
+    // autosave interval
+    var autosave_interval = 1000;
+
     // Render ace editor for HTML editor
     var html_editor = ace.edit("html-editor");
     html_editor.setTheme("ace/theme/solarized_dark");
@@ -38,12 +41,11 @@ $(function(){
         }
     }
 
-    setInterval(autosave, 1000);
+    setInterval(autosave, autosave_interval);
 
     // socket testing
     socket.on('news', function(data){
         console.log('data');
         socket.emit('other-event', {my: 'data'});
     });
-
 });
