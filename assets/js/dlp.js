@@ -40,4 +40,10 @@ $(function(){
 
     setInterval(autosave, 1000);
 
+    // socket testing
+    socket.on('news', function(data){
+        console.log('data');
+        socket.emit('other-event', {my: 'data'});
+    });
+
 });

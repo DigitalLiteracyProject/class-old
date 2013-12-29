@@ -73,13 +73,12 @@ body {
 
 
 .content {
-    height: 90%;
+    height: 95%;
     width:80%;
     left: 20%;
     position:absolute;
     float:right;
     margin-top: 0;
-    border: 4px outset #CCCCCC;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -213,4 +212,9 @@ form.auth {
     padding: 10px;
     background-color: gray;
     width: 300px;
+}
+
+#split-container {
+    height: 100%;
+    width: 100%;
 }
