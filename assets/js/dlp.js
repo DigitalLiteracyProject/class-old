@@ -19,7 +19,6 @@ $(function(){
     // render the HTML output once upon loading the page
     updateHTMLOutput();
 
-
     // then update the HTML output every time the input is changed
     html_editor.getSession().on('change', function(e){
         updateHTMLOutput();

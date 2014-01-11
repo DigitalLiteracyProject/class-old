@@ -44,7 +44,7 @@ module.exports.routes = {
 
   'get /class': 'MainController.class',
 
-  'get /modules': 'ModuleController.index',
+  'get /modules': 'ModuleController.all',
   'get /modules/:id': 'ModuleController.show'
 
 

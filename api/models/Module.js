@@ -14,7 +14,8 @@ var Module = {
         notes: 'STRING',
         deliverables: 'ARRAY',
         lesson_brief: 'STRING',
-        lesson_plan: 'STRING'
+        lesson_plan: 'STRING',
+        type: 'STRING'
     }
 };
 

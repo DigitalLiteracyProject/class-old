@@ -17,7 +17,7 @@
 
 module.exports = {
     
-    index: function(req,res){
+    all: function(req,res){
         Module.find().done(function(err, modules){
             res.view('module/index', {modules: modules});
         });
