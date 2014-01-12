@@ -20,6 +20,10 @@ module.exports.policies = {
 
   MainController: {
   	class: 'isAuthenticated'
+  },
+
+  ModuleController: {
+ 	'*': 'isAuthenticated'
   }
 
   

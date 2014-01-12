@@ -16,6 +16,11 @@
  */
 
 module.exports = {
+
+    index: function(req, res){
+        res.redirect('/modules');
+    },
+
     class: function(req, res){
         res.view('class/main');
     },

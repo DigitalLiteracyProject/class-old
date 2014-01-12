@@ -32,7 +32,7 @@ module.exports.routes = {
   // located at `views/home/index.ejs`
   // 
   // (This would also work if you had a file at: `/views/home.ejs`)
-  '/': 'UserController.loginView',
+  '/': 'Maincontroller.index',
 
   'get /signup': 'UserController.signupView',
   'post /signup': 'UserController.signup',
