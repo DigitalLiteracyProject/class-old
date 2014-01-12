@@ -14,6 +14,7 @@ $(function(){
         var doc = $frame[0].contentWindow.document;
         var $html = $('html',doc);
         $html.html(html_editor.getValue());
+        console.log('Updated');
     }
 
     // render the HTML output once upon loading the page
@@ -21,6 +22,7 @@ $(function(){
 
     // then update the HTML output every time the input is changed
     html_editor.getSession().on('change', function(e){
+        console.log(e);
         updateHTMLOutput();
     });
 
@@ -35,7 +37,7 @@ $(function(){
         } else {
             saveCache = html_editor.getValue();
             socket.put('/save/' + saveID, {program: html_editor.getValue()}, function(response){
-                console.log(response);
+                // console.log(response);
             });
         }
     }
