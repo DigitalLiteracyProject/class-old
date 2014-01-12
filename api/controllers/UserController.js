@@ -76,11 +76,13 @@ module.exports = {
                             req.session.user = usr;
                             res.redirect('/modules');
                         } else {
-                            res.send(400, {error: "Wrong Username or Password!"});
+                            req.flash.error('Incorrect username or password');
+                            res.redirect('/login');
                         }
                     });
                 } else {
-                    res.send(404, {error: "User not found."});
+                    req.flash.error('Incorrect username or password');
+                    res.redirect('/login');
                 }
             }
         });

@@ -60,6 +60,9 @@
 
       <div id="page-wrapper">
 
+        <% if (flash_error) { %>
+          <div class="alert alert-danger"><%= flash_error_message %></div>
+        <% } %>
         
 
       <%- body %>
