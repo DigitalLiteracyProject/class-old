@@ -55,6 +55,12 @@ module.exports = {
         res.view('_list', {models: docs, modelName: req.params.model});
       });
     },
+
+    new: function(req, res){
+      var attributes = Object.keys(sails.models[req.params.model].attributes);
+
+      res.view('_new', {modelName: req.params.model, attributes: attributes});
+    },
   
 
 
