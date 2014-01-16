@@ -8,11 +8,30 @@
 
 var User = {
     attributes: {
-        name: 'STRING',
-        username: 'STRING',
-        password_hash: 'STRING',
-        type: 'STRING',
-        isSignedIn: 'BOOLEAN'
+        name: {
+            type: 'STRING',
+            required: true
+        },
+
+        username: {
+            type: 'STRING',
+            required: true
+        },
+
+        password_hash: {
+            type: 'STRING',
+            required: true
+        },
+        
+        type: {
+            type: 'STRING',
+            required: true
+        },
+
+        class: {
+            type: 'INTEGER',
+            required: false
+        }
     }
 };
 

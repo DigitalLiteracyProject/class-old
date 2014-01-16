@@ -18,7 +18,7 @@
 module.exports = {
     
     all: function(req,res){
-        Module.find().done(function(err, modules){
+        Module.find({}).done(function(err, modules){
             res.view('module/index', {modules: modules});
         });
     },
@@ -35,6 +35,16 @@ module.exports = {
                 });
             }
         });
+    },
+
+    classModules: function(req, res) {
+      Class.findOne({id: req.session.user}).done(function(err, doc){
+        if(doc){
+          res.view('module/class_modules', {modules: doc.modules });
+        } else {
+          res.send('You are not in a class. Please ask your teacher to add you.');
+        }
+      });
     },
 
 

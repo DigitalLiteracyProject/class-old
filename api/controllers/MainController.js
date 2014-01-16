@@ -24,6 +24,37 @@ module.exports = {
     class: function(req, res){
         res.view('class/main');
     },
+
+    show: function(req, res){
+      var attributes = Object.keys(sails.models[req.params.model].attributes);
+
+      sails.models[req.params.model].findOneById(req.params.id, function(err, doc){
+        if(err)
+          res.send('Error fetching item');
+        res.view('_show', {model: doc, modelName: req.params.model, attributes: attributes});
+      });
+    },
+
+    edit: function(req, res){
+      var attributes = Object.keys(sails.models[req.params.model].attributes);
+
+      console.log(typeof(attributes));
+
+      sails.models[req.params.model].findOneById(req.params.id, function(err, doc){
+        if(err)
+          res.send('Error rendering edit form');
+        res.view('_edit', {model: doc, modelName: req.params.model, attributes: attributes});
+      });
+    },
+
+    list: function(req, res){
+
+      sails.models[req.params.model].find().done(function(err, docs){
+        if(err)
+          res.send('Error getting list');
+        res.view('_list', {models: docs, modelName: req.params.model});
+      });
+    },
   
 
 

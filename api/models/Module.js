@@ -15,7 +15,7 @@ var Module = {
         deliverables: 'ARRAY',
         lesson_brief: 'STRING',
         lesson_plan: 'STRING',
-        type: 'STRING'
+        language: 'STRING'
     }
 };
 

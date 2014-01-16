@@ -19,11 +19,12 @@ module.exports.policies = {
   '*': 'flash',
 
   MainController: {
+    '*': 'flash',
   	class: 'isAuthenticated'
   },
 
   ModuleController: {
- 	'*': 'isAuthenticated'
+ 	'*': ['isAuthenticated', 'flash']
   }
 
   

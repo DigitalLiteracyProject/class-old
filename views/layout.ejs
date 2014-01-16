@@ -31,7 +31,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">DLP &lt;Class&gt;</a>
+          <a class="navbar-brand" href="/">DLP &lt;Class&gt;</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -43,7 +43,7 @@
                 <ul class="dropdown-menu">
                   <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
                   <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
-                  <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+                  <li><a href="/user/<%= req.session.user.id %>/settings"><i class="fa fa-gear"></i> Settings</a></li>
                   <li class="divider"></li>
                   <li><a href="/logout"><i class="fa fa-power-off"></i> Log Out</a></li>
                 </ul>
@@ -62,6 +62,9 @@
 
         <% if (flash_error) { %>
           <div class="alert alert-danger"><%= flash_error_message %></div>
+        <% } %>
+        <% if (flash_notice) { %>
+          <div class="alert alert-success"><%= flash_notice_message %></div>
         <% } %>
         
 

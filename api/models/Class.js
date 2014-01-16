@@ -10,7 +10,8 @@ var Class = {
     attributes: {
         students: 'ARRAY',
         teachers: 'ARRAY',
-        lessons: 'ARRAY'
+        modules: 'ARRAY',
+        activeModule: 'INTEGER'
     }
 };
 

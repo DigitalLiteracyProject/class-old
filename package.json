@@ -11,7 +11,8 @@
     "optimist": "0.3.4",
     "bcrypt": "~0.7.7",
     "connect-flash": "~0.1.1",
-    "forever": "~0.10.11"
+    "forever": "~0.10.11",
+    "node-validator": "~0.1.1"
   },
   "scripts": {
     "start": "node app.js",

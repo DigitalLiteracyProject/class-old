@@ -16,6 +16,12 @@
  */
 
 module.exports = {
+
+    userIndex: function(req, res) {
+        Save.find({belongs_to: req.session.user.id}).done(function(err, saves){
+            res.view('/programs', {saves: saves});
+        });
+    },
   
 
 

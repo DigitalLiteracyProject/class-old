@@ -1,0 +1,14 @@
+<!-- NOTE: THIS TEMPLATE TAKES AN OBJECT 'MODEL', STRING 'MODELNAME' AS INPUT -->
+
+<div class="row">
+  <div class="col-lg-12">
+    <h1>Edit <%= modelName %> <small></small></h1>
+    <div class="list-group">
+        <% attributes.forEach(function(item){ %>
+            <li><b><%= item %>:</b> <%= model[item] %></li>
+        <% }); %>
+    </div>
+    <a class="btn btn-default" href="/<%= modelName %>/<%= model.id %>/edit"><i class="fa fa-cog"></i> Edit</a>
+    <a class="btn btn-danger" href="/<%= modelName %>/destroy/<%= model.id %>"><i class="fa fa-trash-o fa-lg"></i> Delete</a>
+  </div>
+</div><!-- /.row -->

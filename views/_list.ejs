@@ -1,0 +1,12 @@
+<!-- NOTE: THIS TEMPLATE TAKES AN ARRAY 'MODELS', STRING 'MODELNAME' AS INPUT -->
+
+<div class="row">
+  <div class="col-lg-12">
+    <h1>All Modules <small></small></h1>
+    <div class="list-group">
+        <% models.forEach(function(item){ %>
+            <li class="list-group-item"><a href="/<%= modelName %>/<%= item.id %>/show"><%= item[Object.keys(item)[0]] %></a> <span class="pull-right"><a href="/<%= modelName %>/<%= item.id %>/show" data-title="Show" data-placement="left" class="show-icon"><i class="fa fa-eye"></i></a> <a href="/<%= modelName %>/<%= item.id %>/edit" data-placement="right" data-title="Edit" class="delete-icon"><i class="fa fa-edit"></i></a></span></li>
+        <% }); %>
+    </div>
+  </div>
+</div><!-- /.row -->

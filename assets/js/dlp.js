@@ -1,5 +1,9 @@
 $(function(){
 
+    // tooltips
+    $('.show-icon').tooltip();
+    $('.delete-icon').tooltip();
+
     // autosave interval
     var autosave_interval = 1000;
 

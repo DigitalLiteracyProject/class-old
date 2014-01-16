@@ -42,10 +42,19 @@ module.exports.routes = {
 
   'get /logout': 'UserController.logout',
 
-  'get /class': 'MainController.class',
+  'get /user/:id/settings': 'UserController.settings',
 
-  'get /modules': 'ModuleController.all',
-  'get /modules/:id': 'ModuleController.show'
+  // 'get /class': 'MainController.class',
+  // 'get /classes': 'ClassController.index',
+
+  'get /modules': 'ModuleController.classModules',
+  'get /modules/index': 'ModuleController.all',
+  'get /modules/:id': 'ModuleController.show',
+
+  // universal templates
+  'get /:model/:id/show': 'MainController.show',
+  'get /:model/:id/edit': 'MainController.edit',
+  'get /:model/list': 'MainController.list',
 
 
 
