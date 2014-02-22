@@ -16,6 +16,11 @@
  */
 
 module.exports = {
+
+    overview: function(req, res){
+      Class.find({ id: req.params.id }).done(function());
+      res.view('class/overview');
+    },
     
   
 

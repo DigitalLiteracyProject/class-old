@@ -38,9 +38,13 @@ module.exports = {
     },
 
     classModules: function(req, res) {
-      Class.findOne({id: req.session.user}).done(function(err, doc){
+      Class.findOne({id: req.session.user.class}).done(function(err, doc){
         if(doc){
-          res.view('module/class_modules', {modules: doc.modules });
+          console.log(doc)
+          Module.find().where({id: doc.modules}).done(function(err, doc){
+            console.log(doc)
+            res.view('module/class_modules', { modules: doc });
+          })
         } else {
           res.send('You are not in a class. Please ask your teacher to add you.');
         }

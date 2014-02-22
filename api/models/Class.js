@@ -8,6 +8,7 @@
 
 var Class = {
     attributes: {
+        name: 'STRING',
         students: 'ARRAY',
         teachers: 'ARRAY',
         modules: 'ARRAY',

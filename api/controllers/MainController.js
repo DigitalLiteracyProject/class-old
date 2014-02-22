@@ -38,8 +38,6 @@ module.exports = {
     edit: function(req, res){
       var attributes = Object.keys(sails.models[req.params.model].attributes);
 
-      console.log(typeof(attributes));
-
       sails.models[req.params.model].findOneById(req.params.id, function(err, doc){
         if(err)
           res.send('Error rendering edit form');
@@ -61,7 +59,6 @@ module.exports = {
 
       res.view('_new', {modelName: req.params.model, attributes: attributes});
     },
-  
 
 
   /**

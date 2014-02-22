@@ -46,16 +46,14 @@ module.exports = {
                 res.send(400, {error: 'Username already taken'});
             } else {
                 var bcrypt = require('bcrypt');
-                bcrypt.hash(password, 8, function(err, hash){
-                    User.create({username: username, password_hash: hash}).done(function(err, user){
-                        if(err){
-                            req.flash.error('Error, try again');
-                            res.redirect('/signup');
-                        } else {
-                            req.session.user = user;
-                            res.send('Successfully Signed Up!');
-                        }
-                    });
+                User.create({values: req.params}).done(function(err, user){
+                    if(err){
+                        req.flash.error('Error, try again');
+                        res.redirect('/signup');
+                    } else {
+                        req.session.user = user;
+                        res.send('Successfully Signed Up!');
+                    }
                 });
             }
         });
@@ -95,12 +93,6 @@ module.exports = {
             res.redirect('/login');
         } else {
             res.send('You must first sign in to logged out.');
-        }
-    },
-
-    settingsView: function(req, res) {
-        if(req.session.user.id == req.params.id || req.session.user.type == 'admin') {
-            res.view('user/settings');
         }
     },
   

@@ -42,12 +42,12 @@ module.exports.routes = {
 
   'get /logout': 'UserController.logout',
 
-  'get /user/:id/settings': 'UserController.settings',
-
   // 'get /class': 'MainController.class',
   // 'get /classes': 'ClassController.index',
 
-  'get /modules': 'ModuleController.classModules',
+  'get /class/:id/overview': 'ClassController.overview',
+
+  'get /modules': 'ModuleController.all',
   'get /modules/index': 'ModuleController.all',
   'get /modules/:id': 'ModuleController.show',
 
@@ -55,7 +55,9 @@ module.exports.routes = {
   'get /:model/:id/show': 'MainController.show',
   'get /:model/:id/edit': 'MainController.edit',
   'get /:model/list': 'MainController.list',
-  'get /:model/new': 'MainController.new',
+  'get /:model/new': 'MainController.new'
+
+
 
 
 
