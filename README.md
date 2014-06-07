@@ -14,7 +14,7 @@ Developed by Ved Topkar and the [DLP](http://DLP.io) team to help create a produ
 - ~~Clean reinstall of sails with required plugins~~
 - ~~Write out backend models~~
 - ~~Initialize assets~~
-- User
+- ~~User~~
   - ~~Signup feature (wow that took too much debugging)~~
   - ~~Login feature~~
   - ~~Usertype restrictions~~
