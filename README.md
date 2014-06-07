@@ -1,5 +1,5 @@
 # DLP Class
-Developed by Ved Topkar and the (DLP)[DLP.io] team to help create a productive CS learning environment.
+Developed by Ved Topkar and the [DLP](DLP.io) team to help create a productive CS learning environment.
 
 ## Setting Up
 1. Clone the repository to your computer
