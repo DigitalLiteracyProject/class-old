@@ -34,11 +34,10 @@ module.exports = {
     },
     
     signup: function(req, res) {
-        res.send('Welcome!');
         var email = req.body.email;
         var password = req.body.password;
 
-        console.log(req.body);
+        values = req.body;
 
         User.findOneByEmail(email, function(err, usr){
             if(err){
@@ -48,13 +47,14 @@ module.exports = {
                 res.send(400, {error: 'Email already registered'});
             } else {
                 var bcrypt = require('bcrypt');
-                User.create({values: req.body}).done(function(err, user){
+                User.create(values).done(function(err, user){
                     if(err){
                         console.log(err);
                         req.flash.error('Error, try again');
                         res.redirect('/signup');
                     } else {
                         req.session.user = user;
+                        console.log('Successfully registered user ' + user.name);
                         res.send('Successfully Signed Up!');
                     }
                 });
@@ -68,10 +68,9 @@ module.exports = {
         var email = req.param("email");
         var password = req.param("password");
 
-        console.log('tests');
-
         User.findOneByEmail(email, function(err, user){
             if(err){
+                console.log(err);
                 res.send(500, {error: "Database error"});
             } else {
                 if(user){
@@ -89,7 +88,7 @@ module.exports = {
                     res.redirect('/login');
                 }
             }
-        }
+        });
     },
 
     logout: function(req, res) {

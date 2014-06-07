@@ -16,7 +16,7 @@ module.exports.adapters = {
 
   // If you leave the adapter config unspecified 
   // in a model definition, 'default' will be used.
-  'default': 'disk',
+  'default': 'mongodb',
 
   mongodb: {
     module: 'sails-mongo',
@@ -28,6 +28,10 @@ module.exports.adapters = {
   // (data is preserved when the server shuts down)
   disk: {
     module: 'sails-disk'
+  },
+
+  memory: {
+    module: 'sails-memory'
   },
 
   // MySQL is the world's most popular relational database.

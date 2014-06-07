@@ -11,8 +11,9 @@
     "grunt": "0.4.1",
     "node-validator": "~0.1.1",
     "optimist": "0.3.4",
-    "sails": "0.9.8",
+    "sails": "0.9.x",
     "sails-disk": "~0.9.0",
+    "sails-memory": "^0.9.1",
     "sails-mongo": "^0.9.8"
   },
   "scripts": {
@@ -21,6 +22,6 @@
   },
   "main": "app.js",
   "repository": "",
-  "author": "Ved Topkar, Tom Silver, Hannah Blumberg",
+  "author": "Ved Topkar, the DLP Tam",
   "license": "MIT"
 }

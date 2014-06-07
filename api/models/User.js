@@ -11,12 +11,12 @@ var User = {
     attributes: {
         name: {
             type: 'STRING',
-            required: true
+            required: false
         },
 
         email: {
             type: 'STRING',
-            required: true
+            required: false 
         },
 
         password_hash: {
@@ -35,34 +35,37 @@ var User = {
         }
     },
 
-    beforeCreate: function(values, next){
-        bcrypt.hash(values.password, 8, function(err, hash){
-            if(err){
-                return next(err);
-            } else {
-                values.password_hash = hash;
-                console.log('password_hash');
-                console.log(values);
-                next();
-            }
-         });
+    beforeCreate: function(data, next){
+      // console.log('Data');
+      // console.log(data);
+      // bcrypt.hash(data.values.password, 8, function(err, hash){
+      //     if(err){
+      //         return next(err);
+      //     } else {
+      //         data.password_hash = hash;
+      //         console.log(data);
+      //         next();
+      //     }
+      //  });
+      
+      next();
     },
 
-    beforeUpdate: function(values, next){
-        sails.models.user.findOneByUsername(values.username).done(function(err, usr){
+    beforeUpdate: function(data, next){
+        sails.models.user.findOneByUsername(data.username).done(function(err, usr){
             if(err){
                 next(err);
             } else {
                 if(usr){
-                    bcrypt.compare(values.password_hash, usr.password_hash, function(err, passwordMatches){
+                    bcrypt.compare(data.password_hash, usr.password_hash, function(err, passwordMatches){
                         if(passwordMatches){
                             next();
                         } else {
-                            bcrypt.hash(values.password_hash, 8, function(err, hash){
+                            bcrypt.hash(data.password_hash, 8, function(err, hash){
                                 if(err){
                                     return next(err);
                                 } else {
-                                    values.password_hash = hash;
+                                    data.password_hash = hash;
                                     next();
                                 }
                             });
