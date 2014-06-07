@@ -11,17 +11,19 @@ var User = {
     attributes: {
         name: {
             type: 'STRING',
-            required: false
+            required: true,
+            notEmpty: true
         },
 
         email: {
             type: 'STRING',
-            required: false 
+            required: true,
+            notEmpty: true
         },
 
         password_hash: {
             type: 'STRING',
-            required: false
+            notEmpty: true
         },
         
         type: {
@@ -36,19 +38,18 @@ var User = {
     },
 
     beforeCreate: function(data, next){
-      // console.log('Data');
-      // console.log(data);
-      // bcrypt.hash(data.values.password, 8, function(err, hash){
-      //     if(err){
-      //         return next(err);
-      //     } else {
-      //         data.password_hash = hash;
-      //         console.log(data);
-      //         next();
-      //     }
-      //  });
-      
-      next();
+      console.log('Data');
+      console.log(data);
+      bcrypt.hash(data.password, 8, function(err, hash){
+          delete data.password;
+          if(err){
+              return next(err);
+          } else {
+              data.password_hash = hash;
+              console.log(data);
+              next();
+          }
+       });
     },
 
     beforeUpdate: function(data, next){
