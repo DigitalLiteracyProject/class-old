@@ -16,7 +16,7 @@ Developed by Ved Topkar and the [DLP](http://DLP.io) team to help create a produ
 - ~~Initialize assets~~
 - User
   - ~~Signup feature (wow that took too much debugging)~~
-  - Login feature
+  - ~~Login feature~~
   - Usertype restrictions
 - Class
   - Editor
