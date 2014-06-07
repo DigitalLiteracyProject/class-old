@@ -24,8 +24,12 @@ module.exports.policies = {
   },
 
   ModuleController: {
- 	'*': ['isAuthenticated', 'flash']
-  }
+ 	  '*': ['isAuthenticated', 'flash']
+  },
+
+  AdminController: {
+    '*': ['isAuthenticated', 'isAdmin']
+  },
 
   
 

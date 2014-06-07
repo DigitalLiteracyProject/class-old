@@ -55,7 +55,10 @@ module.exports.routes = {
   'get /:model/:id/show': 'MainController.show',
   'get /:model/:id/edit': 'MainController.edit',
   'get /:model/list': 'MainController.list',
-  'get /:model/new': 'MainController.new'
+  'get /:model/new': 'MainController.new',
+
+  // admin views
+  'get /admin': 'AdminController.adminPanel'
 
 
 
