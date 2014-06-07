@@ -37,6 +37,8 @@ module.exports = {
         var email = req.body.email;
         var password = req.body.password;
 
+        delete req.body.password_again;
+
         values = req.body;
 
         User.findOneByEmail(email, function(err, usr){
