@@ -35,19 +35,22 @@ module.exports = {
     
     signup: function(req, res) {
         res.send('Welcome!');
-        var username = req.param('username');
-        var password = req.param('password');
+        var email = req.body.email;
+        var password = req.body.password;
 
-        User.findOneByUsername(username).done(function(err, usr){
+        console.log(req.body);
+
+        User.findOneByEmail(email, function(err, usr){
             if(err){
                 console.log('Database error when creating user');
                 res.send(500, {error: 'Database Error'});
             } else if(usr) {
-                res.send(400, {error: 'Username already taken'});
+                res.send(400, {error: 'Email already registered'});
             } else {
                 var bcrypt = require('bcrypt');
-                User.create({values: req.params}).done(function(err, user){
+                User.create({values: req.body}).done(function(err, user){
                     if(err){
+                        console.log(err);
                         req.flash.error('Error, try again');
                         res.redirect('/signup');
                     } else {
@@ -62,29 +65,31 @@ module.exports = {
     login: function(req, res){
         var bcrypt = require('bcrypt');
 
-        var username = req.param("username");
+        var email = req.param("email");
         var password = req.param("password");
 
-        User.findOneByUsername(username).done(function(err, usr){
+        console.log('tests');
+
+        User.findOneByEmail(email, function(err, user){
             if(err){
                 res.send(500, {error: "Database error"});
             } else {
-                if(usr){
-                    bcrypt.compare(password, usr.password_hash, function(err, passwordMatches){
+                if(user){
+                    bcrypt.compare(password, user.password_hash, function(err, passwordMatches){
                         if(passwordMatches){
-                            req.session.user = usr;
+                            req.session.user = user;
                             res.redirect('/modules');
                         } else {
-                            req.flash.error('Incorrect username or password');
+                            req.flash.error('Incorrect email or password');
                             res.redirect('/login');
                         }
                     });
                 } else {
-                    req.flash.error('Incorrect username or password');
+                    req.flash.error('Incorrect email or password');
                     res.redirect('/login');
                 }
             }
-        });
+        }
     },
 
     logout: function(req, res) {

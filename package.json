@@ -4,15 +4,16 @@
   "version": "0.0.1",
   "description": "a Sails application",
   "dependencies": {
-    "sails": "0.9.8",
-    "grunt": "0.4.1",
-    "sails-disk": "~0.9.0",
-    "ejs": "0.8.4",
-    "optimist": "0.3.4",
     "bcrypt": "~0.7.7",
     "connect-flash": "~0.1.1",
+    "ejs": "0.8.4",
     "forever": "~0.10.11",
-    "node-validator": "~0.1.1"
+    "grunt": "0.4.1",
+    "node-validator": "~0.1.1",
+    "optimist": "0.3.4",
+    "sails": "0.9.8",
+    "sails-disk": "~0.9.0",
+    "sails-mongo": "^0.9.8"
   },
   "scripts": {
     "start": "node app.js",

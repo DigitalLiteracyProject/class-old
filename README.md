@@ -1,5 +1,5 @@
 # DLP Class
-Developed by Ved Topkar, Tom Silver, and the (DLP)[DLP.io] team to help create a productive CS learning environment.
+Developed by Ved Topkar and the (DLP)[DLP.io] team to help create a productive CS learning environment.
 
 ## Setting Up
 1. Clone the repository to your computer
@@ -9,3 +9,23 @@ Developed by Ved Topkar, Tom Silver, and the (DLP)[DLP.io] team to help create a
 3. Install Sails.js `npm install -g sails`
 
 4. Install all dependencies `npm install`
+
+## VERSION 0.0.2 TODO
+- ~~Clean reinstall of sails with required plugins~~
+- ~~Write out backend models~~
+- ~~Initialize assets~~
+- User
+  - Signup feature
+  - Login feature
+  - Usertype restrictions
+- Class
+  - Editor
+  - View
+    - Student View
+    - Teacher View
+- Modules
+  - Code Editor
+  - Assessment
+  - Lecture Item
+- Messages
+- Off-task alerts

@@ -18,6 +18,12 @@ module.exports.adapters = {
   // in a model definition, 'default' will be used.
   'default': 'disk',
 
+  mongodb: {
+    module: 'sails-mongo',
+    host: 'localhost',
+    port: 27017,
+  },
+
   // Persistent adapter for DEVELOPMENT ONLY
   // (data is preserved when the server shuts down)
   disk: {

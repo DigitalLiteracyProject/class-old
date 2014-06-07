@@ -2,8 +2,7 @@
  * User
  *
  * @module      :: Model
- * @description :: A short summary of how this model works and what it represents.
- * @docs		:: http://sailsjs.org/#!documentation/models
+ * @description :: 
  */
 
 var bcrypt = require('bcrypt');
@@ -15,33 +14,35 @@ var User = {
             required: true
         },
 
-        username: {
+        email: {
             type: 'STRING',
             required: true
         },
 
         password_hash: {
             type: 'STRING',
-            required: true
+            required: false
         },
         
         type: {
             type: 'STRING',
-            required: true
+            defaultsTo: 'student'
         },
 
-        class: {
-            type: 'INTEGER',
-            required: false
+        classes: {
+            type: 'ARRAY',
+            defaultsTo: []
         }
     },
 
     beforeCreate: function(values, next){
-        bcrypt.hash(values.password_hash, 8, function(err, hash){
+        bcrypt.hash(values.password, 8, function(err, hash){
             if(err){
                 return next(err);
             } else {
                 values.password_hash = hash;
+                console.log('password_hash');
+                console.log(values);
                 next();
             }
          });
