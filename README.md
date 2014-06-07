@@ -17,7 +17,7 @@ Developed by Ved Topkar and the [DLP](http://DLP.io) team to help create a produ
 - User
   - ~~Signup feature (wow that took too much debugging)~~
   - ~~Login feature~~
-  - Usertype restrictions
+  - ~~Usertype restrictions~~
 - Class
   - Editor
   - View
