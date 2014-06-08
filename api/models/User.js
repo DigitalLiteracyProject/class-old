@@ -31,7 +31,7 @@ var User = {
             defaultsTo: 'student'
         },
 
-        classes: {
+        classrooms: {
             type: 'ARRAY',
             defaultsTo: []
         }
