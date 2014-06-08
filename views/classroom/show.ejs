@@ -1,6 +1,24 @@
+<h1><%= classroom.name %></h1>
+
+Teachers:
+<ul>
+  <% if(classroom.teachers.length > 0){ %>
+    <% classroom.teachers.forEach(function(teacher){ %>
+      <li><%= teacher.name %></li>
+    <% }); %>
+  <% } else { %>
+    This classroom has no teachers!
+  <% } %>
+</ul>
+
 Students:
 <ul>
-  <% students.forEach(function(student){%>
-    <li><%= student.name %>
-  <% }); %>
+  <% if(classroom.students.length > 0){ %>
+    <% classroom.students.forEach(function(student){ %>
+      <li><%= student.name %></li>
+    <% }); %>
+  <% } else { %>
+    This classroom has no students!
+  <% } %>
 </ul>
+<a class="btn btn-success" href="/classroom/<%= classroom.id %>/edit">Edit</a>

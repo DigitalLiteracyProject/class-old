@@ -31,7 +31,21 @@ var Classroom = {
         type: 'INTEGER',
         defaultsTo: 0
       }
-    }
+    },
+
+    
+    divideUsers: function(users){
+      var students = [];
+      var teachers = [];
+      users.forEach(function(user){
+        if(user.type === 'student'){
+          students.push(user);
+        } else if(user.type === 'teacher' || user.type == 'admin') {
+          teachers.push(user);
+        }
+      });
+      return [students, teachers];
+    },
 };
 
 module.exports = Classroom;

@@ -40,6 +40,13 @@ $(function(){
       }
     });
 
+    // END SIGNUP FORM VALIDATION
+
+    // BEGIN CLASSROOM EDITOR
+    $('')
+
+    // END CLASSROOM EDITOR
+
     // autosave interval
     var autosave_interval = 1000;
 

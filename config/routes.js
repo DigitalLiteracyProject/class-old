@@ -43,9 +43,11 @@ module.exports.routes = {
   'get /logout': 'UserController.logout',
 
   // Classroom routes
-  'get /classroom/:id/show': 'ClassroomController.show',
   'get /classroom/list': 'ClassroomController.list',
+  'get /classroom/:id/show': 'ClassroomController.show',
+  'get /classroom/:id/edit': 'ClassroomController.edit',
 
+  // Module routes
   'get /modules': 'ModuleController.all',
   'get /modules/index': 'ModuleController.all',
   'get /modules/:id': 'ModuleController.show',
