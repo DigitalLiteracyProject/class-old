@@ -18,6 +18,9 @@ Developed by Ved Topkar and the [DLP](http://DLP.io) team to help create a produ
   - ~~Signup feature (wow that took too much debugging)~~
   - ~~Login feature~~
   - ~~Usertype restrictions~~
+- Classroom
+  - ~~Overview~~
+  - Editor
 - Class
   - Editor
   - View
