@@ -22,6 +22,11 @@ var Classroom = {
         defaultsTo: []
       },
 
+      classRoomSessions: {
+        type: 'ARRAY',
+        defaultsTo: []
+      },
+
       modules: {
         type: 'ARRAY',
         defaultsTo: []
@@ -33,7 +38,7 @@ var Classroom = {
       }
     },
 
-    
+
     divideUsers: function(users){
       var students = [];
       var teachers = [];

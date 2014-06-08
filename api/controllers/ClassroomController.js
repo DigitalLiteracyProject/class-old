@@ -30,8 +30,16 @@ module.exports = {
         var divided = Classroom.divideUsers(all_users);
         var students = divided[0];
         var teachers = divided[1];
-        res.view('classroom/edit', {classroom: classroom, students: students, teachers: teachers});
+        var classroomsessions = [];
+        res.view('classroom/edit', {classroom: classroom, students: students, teachers: teachers, classroomsessions: classroomsessions});
       });
+    })
+  },
+
+  update: function(req, res){
+    console.log('Classroom edited');
+    Classroom.findOne(req.params.id).done(function(err, classroom){
+
     })
   },
   

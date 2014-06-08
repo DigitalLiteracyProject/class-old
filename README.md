@@ -20,7 +20,7 @@ Developed by Ved Topkar and the [DLP](http://DLP.io) team to help create a produ
   - ~~Usertype restrictions~~
 - Classroom
   - ~~Overview~~
-  - Editor
+  - **Editor** (tried it, is pretty hard. Will come back to this later...)
 - Class
   - Editor
   - View

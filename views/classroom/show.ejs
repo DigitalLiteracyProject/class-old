@@ -21,4 +21,15 @@ Students:
     This classroom has no students!
   <% } %>
 </ul>
+
+Sessions:
+<ul>
+  <% if(classroom.classroomsessions.length > 0){ %>
+    <% classroom.classroomsessions.forEach(function(classroomsession){ %>
+      <li><%= classroomsession.title %></li>
+    <% }); %>
+  <% } else { %>
+    This classroom has no classroom sessions!
+  <% } %>
+</ul>
 <a class="btn btn-success" href="/classroom/<%= classroom.id %>/edit">Edit</a>

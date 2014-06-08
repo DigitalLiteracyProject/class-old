@@ -15,13 +15,13 @@
                         <div class="form-group">
                             <label>Teachers</label><br/>
                             <% teachers.forEach(function(teacher){ %>
-                              <label><input type="checkbox" <% _.contains(teacher.classrooms, classroom.id) ? 'checked' : ''%>> <%= teacher.name %></label><br/>
+                              <label><input type="checkbox" name="teacher-<%= teacher.id %>" <% _.contains(teacher.classrooms, classroom.id) ? 'checked' : ''%>> <%= teacher.name %></label><br/>
                             <% }) %>
                         </div>
                         <div class="form-group">
                             <label>Students</label><br/>
                             <% students.forEach(function(student){ %>
-                              <label><input type="checkbox"> <%= student.name %></label><br/>
+                              <label><input type="checkbox" name="student-<%= student.id %>"> <%= student.name %></label><br/>
                             <% }) %>
                         </div>
                         <input class="btn btn-lg btn-success btn-block" type="submit" value="Edit">
