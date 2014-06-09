@@ -4,24 +4,40 @@ $(function(){
     $('.show-icon').tooltip();
     $('.delete-icon').tooltip();
 
+    // BEGIN SESSION EDITOR
+    // $("#add-module").click(function(){
+    //   alert('hi');
+    //   $("#modules-container").append("
+    //     <h2>New Module</h2>
+    //     <select class="form-control">
+    //       <option>Code Module</option>
+    //       <option>Assessment Module</option>
+    //       <option>Lecture Module</option>
+    //     </select>
+    //     <input type="text" placeholder="Module Title"/>
+    //   ");
+    // });
+    // END SESSION EDITOR
+
     // BEGIN ATTENTION TRACKING
+    if(top.location.pathname === '/test/attention'){
+      $.idleTimer(3000);
+      var title = document.title;
 
-    $.idleTimer(3000);
-    var title = document.title;
+      // When the student is no longer paying attention...
+      $(document).on("idle.idleTimer", function(event, elem, obj){
+        console.log('Student is not paying attention');
+        $("#attention-test").html('Student is not paying attention').removeClass("alert-success").addClass("alert-danger");
+        document.title = "Pay attention!";
+      });
 
-    // When the student is no longer paying attention...
-    $(document).on("idle.idleTimer", function(event, elem, obj){
-      console.log('Student is not paying attention');
-      $("#attention-test").html('Student is not paying attention').removeClass("alert-success").addClass("alert-danger");
-      document.title = "Pay attention!";
-    });
-
-    // When the student is paying attention again!
-    $(document).on("active.idleTimer", function(event, elem, obj, triggerevent){
-      console.log('Student is paying attention again!');
-      $("#attention-test").html('Student is paying attention again!').removeClass("alert-danger").addClass("alert-success");
-      document.title = title;
-    });
+      // When the student is paying attention again!
+      $(document).on("active.idleTimer", function(event, elem, obj, triggerevent){
+        console.log('Student is paying attention again!');
+        $("#attention-test").html('Student is paying attention again!').removeClass("alert-danger").addClass("alert-success");
+        document.title = title;
+      });
+    }
 
     // END ATTENTION TRACKING
 

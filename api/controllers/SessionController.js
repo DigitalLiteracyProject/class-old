@@ -25,9 +25,7 @@ module.exports = {
   },
 
   edit: function(req, res){
-    session.findOne({id: req.params.id}).done(function(err, session){
-      res.view('session/edit', {session: session});
-    })
+    res.view('session/edit');
   },
     
   

@@ -31,4 +31,4 @@ Developed by Ved Topkar and the [DLP](http://DLP.io) team to help create a produ
   - Assessment
   - Lecture Item
 - Messages
-- Off-task alerts
+- ~~Off-task alerts~~
