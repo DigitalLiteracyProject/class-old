@@ -21,7 +21,7 @@ Developed by Ved Topkar and the [DLP](http://DLP.io) team to help create a produ
 - Classroom
   - ~~Overview~~
   - **Editor** (tried it, is pretty hard. Will come back to this later...)
-- Class
+- ClassSession
   - Editor
   - View
     - Student View

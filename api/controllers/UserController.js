@@ -19,7 +19,7 @@ module.exports = {
 
     loginView: function(req, res) {
         if(req.session.user){
-            res.redirect('modules');
+            res.redirect('/classroom/list');
         } else {
             res.view('user/login');
         }
@@ -79,7 +79,7 @@ module.exports = {
                     bcrypt.compare(password, user.password_hash, function(err, passwordMatches){
                         if(passwordMatches){
                             req.session.user = user;
-                            res.redirect('/modules');
+                            res.redirect('/classroom/list');
                         } else {
                             req.flash.error('Incorrect email or password');
                             res.redirect('/login');
@@ -98,7 +98,7 @@ module.exports = {
             req.session.user = null;
             res.redirect('/login');
         } else {
-            res.send('You must first sign in to logged out.');
+            res.send('You must first sign in to log out.');
         }
     },
   

@@ -1,5 +1,5 @@
 /**
- * ClassroomSessionController
+ * SessionController
  *
  * @module      :: Controller
  * @description	:: A set of functions called `actions`.
@@ -16,13 +16,26 @@
  */
 
 module.exports = {
+
+  show: function(req, res){
+    console.log(req.params.id);
+    session.findOne({id: req.params.id}).done(function(err, session){
+      res.view('session/show', {session: session});
+    });
+  },
+
+  edit: function(req, res){
+    session.findOne({id: req.params.id}).done(function(err, session){
+      res.view('session/edit', {session: session});
+    })
+  },
     
   
 
 
   /**
    * Overrides for the settings in `config/controllers.js`
-   * (specific to ClassroomSessionController)
+   * (specific to SessionController)
    */
   _config: {}
 

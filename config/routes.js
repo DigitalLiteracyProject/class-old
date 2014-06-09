@@ -52,6 +52,12 @@ module.exports.routes = {
   'get /modules/index': 'ModuleController.all',
   'get /modules/:id': 'ModuleController.show',
 
+  // Session routes
+  'get /session/:id/student': 'SessionController.studentView',
+  'get /session/:id/teacher': 'SessionController.teacherView',
+  'get /session/:id/show': 'SessionController.show',
+  'get /session/:id/edit': 'SessionController.edit',
+
   // universal templates
   'get /:model/:id/show': 'MainController.show',
   'get /:model/:id/edit': 'MainController.edit',
@@ -59,7 +65,10 @@ module.exports.routes = {
   'get /:model/new': 'MainController.new',
 
   // admin views
-  'get /admin': 'AdminController.adminPanel'
+  'get /admin': 'AdminController.adminPanel',
+
+  // Test views
+  'get /test/attention': 'MainController.attention'
 
 
 

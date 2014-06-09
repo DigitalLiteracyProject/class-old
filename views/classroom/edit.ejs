@@ -24,7 +24,16 @@
                               <label><input type="checkbox" name="student-<%= student.id %>"> <%= student.name %></label><br/>
                             <% }) %>
                         </div>
-                        <input class="btn btn-lg btn-success btn-block" type="submit" value="Edit">
+                        <div class="form-group">
+                            <label>Sessions</label><br/>
+                            <ul>
+                            <% sessions.forEach(function(session){ %>
+                              <li><a href=""> <%= session.title %><br/></li>
+                            <% }) %>
+                            </ul>
+                            <!-- <a class="btn btn-lg btn-info btn-sm" type="submit" href="/session/new">Create Session</a> -->
+                        </div>
+                        <input class="btn btn-lg btn-success btn-block" type="submit" value="Update">
                     </fieldset>
                     </form>
                 </div>

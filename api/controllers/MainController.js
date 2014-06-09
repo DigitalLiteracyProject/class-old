@@ -18,7 +18,7 @@
 module.exports = {
 
     index: function(req, res){
-        res.redirect('/modules');
+        res.redirect('/classroom/list');
     },
 
     class: function(req, res){
@@ -58,6 +58,10 @@ module.exports = {
       var attributes = Object.keys(sails.models[req.params.model].attributes);
 
       res.view('_new', {modelName: req.params.model, attributes: attributes});
+    },
+
+    attention: function(req, res){
+      res.view('test/attention');
     },
 
 

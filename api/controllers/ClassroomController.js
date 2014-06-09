@@ -30,8 +30,9 @@ module.exports = {
         var divided = Classroom.divideUsers(all_users);
         var students = divided[0];
         var teachers = divided[1];
-        var classroomsessions = [];
-        res.view('classroom/edit', {classroom: classroom, students: students, teachers: teachers, classroomsessions: classroomsessions});
+        sails.models.session.find().done(function(err, sessions){
+          res.view('classroom/edit', {classroom: classroom, students: students, teachers: teachers, sessions: sessions});
+        });
       });
     })
   },

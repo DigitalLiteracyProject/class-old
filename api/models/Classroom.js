@@ -22,20 +22,10 @@ var Classroom = {
         defaultsTo: []
       },
 
-      classRoomSessions: {
+      sessions: {
         type: 'ARRAY',
         defaultsTo: []
       },
-
-      modules: {
-        type: 'ARRAY',
-        defaultsTo: []
-      },
-
-      activeModule: {
-        type: 'INTEGER',
-        defaultsTo: 0
-      }
     },
 
 

@@ -4,6 +4,27 @@ $(function(){
     $('.show-icon').tooltip();
     $('.delete-icon').tooltip();
 
+    // BEGIN ATTENTION TRACKING
+
+    $.idleTimer(3000);
+    var title = document.title;
+
+    // When the student is no longer paying attention...
+    $(document).on("idle.idleTimer", function(event, elem, obj){
+      console.log('Student is not paying attention');
+      $("#attention-test").html('Student is not paying attention').removeClass("alert-success").addClass("alert-danger");
+      document.title = "Pay attention!";
+    });
+
+    // When the student is paying attention again!
+    $(document).on("active.idleTimer", function(event, elem, obj, triggerevent){
+      console.log('Student is paying attention again!');
+      $("#attention-test").html('Student is paying attention again!').removeClass("alert-danger").addClass("alert-success");
+      document.title = title;
+    });
+
+    // END ATTENTION TRACKING
+
 
 
     // BEGIN SIGNPU FORM VALIDATION
@@ -43,7 +64,13 @@ $(function(){
     // END SIGNUP FORM VALIDATION
 
     // BEGIN CLASSROOM EDITOR
-    $('')
+    // $('#classroom-configure-button').click(function(){
+    //   $.ajax({
+    //     type: 'put',
+    //     url: 
+    //   })
+    //   return false;
+    // });
 
     // END CLASSROOM EDITOR
 
