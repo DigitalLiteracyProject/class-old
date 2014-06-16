@@ -31,6 +31,11 @@ module.exports.policies = {
     '*': ['isAuthenticated', 'isAdmin']
   },
 
+  ClassroomController: {
+    '*': ['isAuthenticated', 'flash'],
+    'edit': ['flash']
+  },
+
   
 
   /*

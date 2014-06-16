@@ -57,6 +57,7 @@ module.exports.routes = {
   'get /session/:id/teacher': 'SessionController.teacherView',
   'get /session/:id/show': 'SessionController.show',
   'get /session/:id/edit': 'SessionController.edit',
+  'get /session/edit': 'SessionController.edit',
 
   // universal templates
   'get /:model/:id/show': 'MainController.show',
