@@ -1,102 +1,191 @@
 <!-- BEGIN SESSION EDITOR -->
-<div id="session-editor" ng-app="SessionEditor">
-  <h1>Session Editor</h1>
-  The following are the modules currently in this session:
-  <div id="modules-container">
-    <!-- BEGIN ALL MODULES -->
-    <div class="panel panel-default" ng-controller="QuizEditorController as quiz">
-      <div class="panel-heading">
-        <h3 class="panel-title">Quiz</h3>
-      </div>
-      <div class="panel-body">
-        <div class="form-group">
-          <label>Title</label>
-          <input type="text" class="form-control" placeholder="e.g. 'Comparison operator review'" ng-model="quiz.data.title" value="{{ quiz.data.title }}">
-        </div>
-        <div class="form-group">
-          <label>Instructions</label>
-          <textarea class="form-control" rows="3" placeholder="e.g. 'Last time we discussed how to compare numbers. Do you remember which symbols we use for each comparison?'" ng-model="quiz.data.instructions" value="{{ quiz.data.instructions }}"></textarea>
-        </div>
-        <div class="questions">
-          <label>Questions</label>
-          <div class="question panel panel-default" ng-repeat="question in quiz.data.questions" ng-controller="QuestionEditorController as QuestionCtl">
-            <div class="panel-heading">
-              Question {{ $index + 1 }}
+<div class="row" ng-app="SessionEditor">
+    <div class="col-md-6">
+        <div id="session-editor">
+            <h1>Session Editor</h1>
+            <div id="modules-container" ng-controller="ModulesEditorController">{{ModulesEditorController.modules}}
+                <!-- BEGIN ALL MODULES -->
+                <div class="module" ng-repeat="module in modules">
+                    <div class="panel panel-default" ng-controller="QuizEditorController as quiz" ng-init="init($index)"
+                         ng-show="module.type == 'quiz'">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Quiz</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" class="form-control" placeholder="e.g. 'Comparison operator review'"
+                                       ng-model="quiz.title" value="{{ quiz.title }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Instructions</label>
+                                <textarea class="form-control" rows="3"
+                                          placeholder="e.g. 'Last time we discussed how to compare numbers. Do you remember which symbols we use for each comparison?'"
+                                          ng-model="quiz.instructions"
+                                          value="{{ quiz.instructions }}"></textarea>
+                            </div>
+                            <div class="questions">
+                                <label>Questions</label>
+
+                                <div class="question panel panel-default" ng-repeat="question in quiz.questions">
+                                    <div class="panel-heading">
+                                        Question {{ $index + 1 }}
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <label>Type</label>
+                                            <select class="form-control" ng-model="question.type">
+                                                <option>True/False</option>
+                                                <option>Multiple Choice</option>
+                                                <option>Short Answer</option>
+                                                <option>Free Response</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Question Body</label>
+                                            <input type="text" class="form-control"
+                                                   placeholder="e.g. 'How many cups in a quart?'"
+                                                   ng-model="question.body" value="{{ question.body }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Secondary Text</label>
+                                            <textarea class="form-control"
+                                                      placeholder="e.g. 'How many cups in a quart?'"
+                                                      ng-model="question.secondary_text"
+                                                      value="{{ question.secondary_text }}"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Image</label>
+                                            <input type="text" class="form-control"
+                                                   placeholder="a link to the desired image" ng-model="question.image"
+                                                   value="{{ question.image }}">
+                                        </div>
+
+                                        <div class="form-group" ng-show="question.type === 'True/False'">
+                                            <label>Correct Answer</label>
+                                            <select class="form-control" ng-model="question.correct_answer"
+                                                    value="question.correct_answer">
+                                                <option>True</option>
+                                                <option>False</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group" ng-show="question.type === 'Multiple Choice'">
+                                            <label>Choices:</label>
+
+                                            <p ng-hide="question.options.length > 0">No choices!</p>
+                                            <button type="button" ng-click="addMCChoice()" class="btn btn-default btn-success">
+                                                Add option
+                                            </button>
+                                        </div>
+
+                                        <div class="form-group" ng-show="question.type === 'Short Answer'">
+                                            <label>Correct Answer</label>
+                                            <input type="text" class="form-control"
+                                                   placeholder="e.g. '16', must be EXACT"
+                                                   ng-model="question.correct_answer"
+                                                   value="{{ question.correct_answer }}">
+                                        </div>
+
+                                        <!--<div class="form-group" ng-show="question.type === 'Free Response'">-->
+                                            <!--<label>Correct Answer</label>-->
+                                            <!--<textarea class="form-control" rows="3"-->
+                                                      <!--placeholder="You probably won't have one correct answer for a free response question, in which case, just leave this blank."-->
+                                                      <!--ng-model="question.correct_answer"-->
+                                                      <!--value="{{ question.correct_answer }}"></textarea>-->
+                                        <!--</div>-->
+                                    </div>
+                                </div>
+                            </div>
+                            {{$scope}}
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info" ng-click="addQuestion()">Add Question</button>
+                            </div>
+                            <br/>
+                            JSON Data: {{ quiz }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button type="button" class="btn dropdown-toggle btn-info" data-toggle="dropdown">
+                        Add Module <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#" ng-click="addModule('quiz')">Quiz Module</a></li>
+                        <li><a href="#" ng-click="addModule('lecture')">Lecture Module</a></li>
+                        <li><a href="#" ng-click="addModule('code')">Code Module</a></li>
+                    </ul>
+                </div>
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-success">
+                        Save
+                    </button>
+                </div>
             </div>
-            <div class="panel-body">
-              <div class="form-group">
-                <label>Type</label>
-                <select class="form-control" ng-model="question.type" ng-change="QuestionCtl.updateQuestionType(question.type)">
-                  <option>True/False</option>
-                  <option selected="selected">Multiple Choice</option>
-                  <option>Short Answer</option>
-                  <option>Free Response</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label>Question Body</label>
-                <input type="text" class="form-control" placeholder="e.g. 'How many cups in a quart?'" ng-model="question.body" value="{{ question.body }}">
-              </div>
-              <div class="form-group">
-                <label>Secondary Text</label>
-                <input type="text" class="form-control" placeholder="e.g. 'How many cups in a quart?'" ng-model="question.secondary_text" value="{{ question.secondary_text }}">
-              </div>
-              <div class="form-group">
-                <label>Image</label>
-                <input type="text" class="form-control" placeholder="a link to the desired image" ng-model="question.image" value="{{ question.image }}">
-              </div>
-
-              <div class="form-group" ng-show="question.type === 'True/False'">
-                <label>Correct Answer</label>
-                <select class="form-control" ng-model="question.correct_answer" ng-value="question.correct_answer">
-                  <option selected="selected">True</option>
-                  <option>False</option>
-                </select>
-              </div>
-
-              <div class="form-group" ng-show="question.type === 'Multiple Choice'">
-                <label>Correct Answer</label>
-                <textarea class="form-control" rows="3" placeholder="You probably won't have one correct answer for a free response question, in which case, just leave this blank." ng-model="quiz.data.instructions" value="{{ quiz.data.instructions }}"></textarea>
-              </div>
-
-              <div class="form-group" ng-show="question.type === 'Short Answer'">
-                <label>Correct Answer</label>
-                <input type="text" class="form-control" placeholder="e.g. '16', must be EXACT" ng-model="question.correct_answer" value="{{ question.correct_answer }}">
-              </div>
-
-              <div class="form-group" ng-show="question.type === 'Free Response'">
-                <label>Correct Answer</label>
-                <textarea class="form-control" rows="3" placeholder="You probably won't have one correct answer for a free response question, in which case, just leave this blank." ng-model="quiz.data.instructions" value="{{ quiz.data.instructions }}"></textarea>
-              </div>
-
-
-            </div>
-          </div>
         </div>
-        <div class="btn-group">
-          <button type="button" class="btn btn-info" ng-click="quiz.addQuestion()">Add Question</button>
-        </div>
-        <br/>
-        {{ quiz.data }}
-      </div>
     </div>
-  </div>
+    <div class="col-md-6" ng-controller="ModulesPreviewController">
+        <h1>Session Preview</h1>
+        <div class="panel panel-default" ng-repeat="module in modules">
+            <div ng-show="module.type == 'quiz'"
+                <div class="panel-heading">
+                    <h3 class="panel-title">Quiz {{ $index + 1 }}</h3>
+                </div>
+                <div class="panel-body">
+                    <h2>{{ module.title || 'Untitled Quiz' }}</h2>
+                    <p>{{ module.instructions || 'No additional instructions given.' }}</p>
 
-  <div class="btn-group">
-    <button type="button" class="btn dropdown-toggle btn-info" data-toggle="dropdown">
-      Add Module <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" role="menu">
-      <li><a href="#">Quiz Module</a></li>
-      <li><a href="#">Lecture Module</a></li>
-      <li><a href="#">Code Module</a></li>
-    </ul>
-  </div>
+                    <div class="panel panel-default" ng-repeat="question in module.questions">
+                        <div class="panel-heading">
+                            Question {{ $index + 1 }} ({{ question.type }})
+                        </div>
+                        <div class="panel-body">
+                            <h4>{{ question.body || 'Blank Question' }}</h4>
+                            <small>{{ question.secondary_text }}</small>
+                            <img class="img-responsive question-image" src="{{ question.image }}" />
 
-  <div class="btn-group">
-    <button type="button" class="btn btn-default dropdown-toggle btn-success" data-toggle="dropdown">
-      Save
-    </button>
-  </div>
+                            <div ng-show="question.type == 'True/False'">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="tfRadio{{$index}}" checked> True
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="tfRadio{{$index}}"> False
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div ng-show="question.type == 'True/False'">
+                                <div class="radio" ng-repeat="">
+                                    <label>
+                                        <input type="radio" name="tfRadio{{$index}}" checked> True
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div ng-show="question.type == 'Short Answer'">
+                                <div class="form-group">
+                                    <label>Your Answer</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div ng-show="question.type == 'Free Response'">
+                                <div class="form-group">
+                                    <label>Your Answer</label>
+                                    <textarea class="form-control" rows="3""></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ modules }}
+    </div>
 </div>

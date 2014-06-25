@@ -1,27 +1,60 @@
 (function(){
   var app = angular.module('SessionEditor', []);
 
-  app.controller('QuizEditorController', function(){
-    this.data = {};
-    this.data.questions = [];
+  app.factory('Modules', function(){
 
-    this.addQuestion = function(){
-      this.data.questions.push({type: "True/False"});
+    var modules = [];
+
+    return modules;
+  });
+
+  app.controller('ModulesEditorController', function($scope, Modules){
+    $scope.modules = Modules;
+
+    $scope.addModule = function(type){
+      console.log(type);
+      $scope.modules.push({type: type});
     };
-
 
   });
 
-  app.controller('QuestionEditorController', function(){
+  app.controller('QuizEditorController', function($scope){
 
-    this.destroy = function($scope){
-      $scope.$destroy();
+    $scope.init = function(index){
+      $scope.quiz = $scope.$parent.modules[index];
+      angular.extend($scope.quiz, {
+        title: "",
+        instructions: "",
+        questions: []
+      });
     };
-    
-    this.updateQuestionType = function(type){
-      
+
+    $scope.addQuestion = function(){
+      console.log($scope.quiz);
+      $scope.quiz.questions.push({type: "True/False"});
     };
+  });
+
+  app.controller('QuestionEditorController', function($scope){
+    $scope.init = function($index){
+        $scope.question = $scope.$parent.quiz.questions[index];
+        angular.extend($scope.questions, {
+            choices: []
+        });
+    }
 
   });
+
+  app.controller('ModulesPreviewController', function($scope, Modules){
+    $scope.modules = Modules;
+  });
+
+    app.filter('capitalize', function() {
+        return function(input, scope) {
+            if (input!=null)
+                input = input.toLowerCase();
+            return input.substring(0,1).toUpperCase()+input.substring(1);
+        }
+    });
 
 })();

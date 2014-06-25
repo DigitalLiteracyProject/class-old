@@ -124,6 +124,12 @@ table.tablesorter thead tr th:hover {
     border-radius: 5px;*/
 }
 
+/* Question Images */
+.question-image {
+    max-height: 300px;
+    width: auto;
+}
+
 /* Edit Below to Customize Widths > 768px */
 @media (min-width:768px) {
 

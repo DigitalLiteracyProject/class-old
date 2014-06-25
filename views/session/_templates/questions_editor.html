@@ -1,0 +1,51 @@
+<div class="question panel panel-default" ng-repeat="question in quiz.data.questions">
+    <div class="panel-heading">
+        Question {{ $index + 1 }}
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label>Type</label>
+            <select class="form-control" ng-model="question.type">
+                <option>True/False</option>
+                <option>Multiple Choice</option>
+                <option>Short Answer</option>
+                <option>Free Response</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Question Body</label>
+            <input type="text" class="form-control" placeholder="e.g. 'How many cups in a quart?'" ng-model="question.body" value="{{ question.body }}">
+        </div>
+        <div class="form-group">
+            <label>Secondary Text</label>
+            <textarea class="form-control" placeholder="e.g. 'How many cups in a quart?'" ng-model="question.secondary_text" value="{{ question.secondary_text }}"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Image</label>
+            <input type="text" class="form-control" placeholder="a link to the desired image" ng-model="question.image" value="{{ question.image }}">
+        </div>
+
+        <div class="form-group" ng-show="question.type === 'True/False'">
+            <label>Correct Answer</label>
+            <select class="form-control" ng-model="question.correct_answer" ng-value="question.correct_answer">
+                <option>True</option>
+                <option>False</option>
+            </select>
+        </div>
+
+        <div class="form-group" ng-show="question.type === 'Multiple Choice'" ng-controller="MultipleChoiceEditorController">
+            <label>Choices:</label>
+            <p ng-show="$parent.">No choices!</p>
+        </div>
+
+        <div class="form-group" ng-show="question.type === 'Short Answer'">
+            <label>Correct Answer</label>
+            <input type="text" class="form-control" placeholder="e.g. '16', must be EXACT" ng-model="question.correct_answer" value="{{ question.correct_answer }}">
+        </div>
+
+        <div class="form-group" ng-show="question.type === 'Free Response'">
+            <label>Correct Answer</label>
+            <textarea class="form-control" rows="3" placeholder="You probably won't have one correct answer for a free response question, in which case, just leave this blank." ng-model="question.correct_answer" value="{{ question.correct_answer }}"></textarea>
+        </div>
+    </div>
+</div>
