@@ -22,7 +22,7 @@ Developed by Ved Topkar and the [DLP](http://DLP.io) team to help create a produ
   - ~~Overview~~
   - **Editor** (tried it, is pretty hard. Will come back to this later...)
 - ClassSession
-  - Editor
+  - ~~Editor~~
   - View
     - Student View
     - Teacher View
