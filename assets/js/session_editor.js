@@ -31,7 +31,7 @@
 
     $scope.addQuestion = function(){
       console.log($scope.quiz);
-      $scope.quiz.questions.push({type: "True/False"});
+      $scope.quiz.questions.push({type: "True/False", choices: []});
     };
   });
 

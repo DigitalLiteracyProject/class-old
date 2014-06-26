@@ -124,10 +124,30 @@ table.tablesorter thead tr th:hover {
     border-radius: 5px;*/
 }
 
+.multiple-choice-delete {
+    cursor: pointer;
+}
+
 /* Question Images */
 .question-image {
     max-height: 300px;
     width: auto;
+}
+
+a.accordion-toggle {
+    text-decoration: none;
+    color: black;
+}
+
+a.accordion-toggle:after {
+    font-family: 'FontAwesome';  /* essential for enabling glyphicon */
+    content: "\f107";    /* adjust as needed, taken from bootstrap.css */
+    float: right;        /* adjust as needed */
+    color: grey;
+}
+
+.panel-heading .accordion-toggle.collapsed:after {
+    content: "\f104";
 }
 
 /* Edit Below to Customize Widths > 768px */
