@@ -24,11 +24,11 @@ Developed by Ved Topkar and the [DLP](http://DLP.io) team to help create a produ
 - ClassSession
   - ~~Editor~~
   - View
-    - Student View
+    - Student View (Scaffolded out. Needs to be plugged into socket.io)
     - Teacher View
 - Modules
   - Code Editor
-  - Assessment
+  - ~~Assessment~~
   - Lecture Item
 - Messages
-- ~~Off-task alerts~~
+- Off-task alerts (done, but needs to be integrated into classroom session)
