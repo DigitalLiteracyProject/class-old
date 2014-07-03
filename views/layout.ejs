@@ -15,6 +15,32 @@
     <!-- DLP Stylesheet -->
     <link href="/styles/class.css" rel="stylesheet">
 
+      <!--
+        Client-side Javascript
+        ========================
+      -->
+      <!-- Bring in the socket.io client -->
+      <script type="text/javascript" src="/js/socket.io.js"></script>
+      <!-- then beef it up with some convenience logic for talking to Sails.js -->
+      <script type="text/javascript" src="/js/sails.io.js"></script>
+      <!-- listen on socket.io for incoming messages -->
+      <script type="text/javascript" src="/js/class.js"></script>
+      <!-- jquery for some magic -->
+      <script type="text/javascript" src="/js/plugins/jquery-1.10.2.min.js"></script>
+      <!-- Load ACE editor -->
+      <script type="text/javascript" src="/js/plugins/src-min-noconflict/ace.js"></script>
+      <!-- Angular.js -->
+      <script type="text/javascript" src="/js/plugins/angular.min.js"></script>
+      <!-- website js file -->
+      <script type="text/javascript" src="/js/dlp.js"></script>
+      <!-- Bootstrap JS -->
+      <script src="/js/plugins/bootstrap.js"></script>
+      <!-- Jquery Idletimer -->
+      <script src="/js/plugins/idle-timer.min.js"></script>
+      <!-- Angular Extra Scripts -->
+      <script src="/js/plugins/angular-resource.min.js"></script>
+      <script src="/js/plugins/angular-route.min.js"></script>
+
   </head>
 
   <body>
@@ -53,7 +79,7 @@
                 <a href="/login" class="navbar-link">Login</a>
               </li>
             <%}%>
-            
+
           </ul>
         </div><!-- /.navbar-collapse -->
       </nav>
@@ -76,30 +102,7 @@
 
     </div><!-- /#wrapper -->
 
-    <!--
-      Client-side Javascript
-      ========================
-    -->
-    <!-- Bring in the socket.io client -->
-    <script type="text/javascript" src="/js/socket.io.js"></script>
-    <!-- then beef it up with some convenience logic for talking to Sails.js -->
-    <script type="text/javascript" src="/js/sails.io.js"></script>
-    <!-- listen on socket.io for incoming messages -->
-    <script type="text/javascript" src="/js/class.js"></script>
-    <!-- jquery for some magic -->
-    <script type="text/javascript" src="/js/plugins/jquery-1.10.2.min.js"></script>
-    <!-- Load ACE editor -->
-    <script type="text/javascript" src="/js/plugins/src-min-noconflict/ace.js"></script>
-    <!-- Angular.js -->
-    <script type="text/javascript" src="/js/plugins/angular.min.js"></script>
-    <!-- website js file -->
-    <script type="text/javascript" src="/js/dlp.js"></script>
-    <!-- Quiz Angular Module -->
-    <script src="/js/session_editor.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="/js/plugins/bootstrap.js"></script>
-    <!-- Jquery Idletimer -->
-    <script src="/js/plugins/idle-timer.min.js"></script>
+
 
   </body>
 </html>

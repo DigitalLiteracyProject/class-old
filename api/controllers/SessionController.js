@@ -25,7 +25,8 @@ module.exports = {
   },
 
   edit: function(req, res){
-    res.view('session/edit');
+    console.log(req.params.id);
+    res.view('session/edit', {params: req.params});
   },
     
   

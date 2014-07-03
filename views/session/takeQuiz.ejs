@@ -1,0 +1,64 @@
+<div ng-app="QuizTaker">
+    <div ng-controller="QuizTakerController" class="panel panel-default">
+        <div class="panel-body">
+            <h2>{{ quiz.title || 'Untitled Quiz' }}</h2>
+            <p>{{ quiz.instructions || 'No additional instructions given.' }}</p>
+            <div class="panel panel-default" ng-repeat="question in quiz.questions track by $index">
+                <div class="panel-heading">
+                    Question {{ $index + 1 }} ({{ question.type }})
+                </div>
+                <div class="panel-body">
+                    <h4>{{ question.body || 'Blank Question' }}</h4>
+                    <small>{{ question.secondary_text }}</small>
+                    <img class="img-responsive question-image" src="{{ question.imageURL }}" />
+
+                    <div ng-show="question.type == 'True/False'">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="tfRadio{{$index}}" ng-model="answers[$index]" value="True" checked> True
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="tfRadio{{$index}}" ng-model="answers[$index]" value="False"> False
+                            </label>
+                        </div>
+                    </div>
+
+                    <div ng-show="question.type == 'Multiple Choice'">
+                        <div ng-repeat="choice in question.choices track by $index">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="mcRadio{{$parent.$index}}" ng-model="answers[$parent.$index]" value="{{choice}}" checked> {{ choice }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div ng-show="question.type == 'Short Answer'">
+                        <div class="form-group">
+                            <label>Your Answer</label>
+                            <input type="text" class="form-control" ng-model="answers[$index]">
+                        </div>
+                    </div>
+
+                    <div ng-show="question.type == 'Free Response'">
+                        <div class="form-group">
+                            <label>Your Answer</label>
+                            <textarea class="form-control" rows="3" ng-model="answers[$index]"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <input class="btn btn-lg btn-success btn-block" type="submit" value="Submit" ng-click="quizSubmitted()" />
+            {{ flashErrors }}
+
+            <div ng-show="flashResults" ng-model="flashResults">
+                {{ flashResults.totalCorrectAnswers }} / {{ flashResults.totalQuestions - flashResults.questionsPendingReview }} questions correct. {{ flashResults.questionsPendingReview }} open-ended question{{ flashResults.questionsPendingReview > 1 ? 's are' : ' is' }} pending review.
+            </div>
+            {{ flashResults }}
+        </div>
+    </div>
+</div>
+<script src="/js/quiz_taker.js"></script>

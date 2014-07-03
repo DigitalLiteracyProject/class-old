@@ -69,7 +69,9 @@ module.exports.routes = {
   'get /admin': 'AdminController.adminPanel',
 
   // Test views
-  'get /test/attention': 'MainController.attention'
+  'get /test/attention': 'MainController.attention',
+
+  'get /quiz/take': 'MainController.take_quiz'
 
 
 

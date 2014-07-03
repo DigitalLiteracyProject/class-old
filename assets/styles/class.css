@@ -161,8 +161,8 @@ a.accordion-toggle:after {
 
   #page-wrapper {
     padding: 15px 25px;
-    max-width: 1000px;
-    width: 80%;
+    /*max-width: 1000px;*/
+    width: 90%;
   }
 
   /* Side Nav */

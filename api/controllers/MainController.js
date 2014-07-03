@@ -64,6 +64,10 @@ module.exports = {
       res.view('test/attention');
     },
 
+    take_quiz: function(req, res){
+        res.view('session/takeQuiz');
+    },
+
 
   /**
    * Overrides for the settings in `config/controllers.js`

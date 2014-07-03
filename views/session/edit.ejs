@@ -1,13 +1,16 @@
 <!-- BEGIN SESSION EDITOR -->
-<div class="row" ng-app="SessionEditor">
+<script>
+    var API_id = "<%= params.id %>";
+</script>
+<div class="row" ng-app="SessionEditor" ng-controller="SessionEditorController as SessionCtl">
     <div class="col-md-6">
         <div id="session-editor">
             <h1>Session Editor</h1>
-            <div id="modules-container" ng-controller="ModulesEditorController">{{ModulesEditorController.modules}}
+            <div id="modules-container" ng-controller="ModulesEditorController">
                 <!-- BEGIN ALL MODULES -->
                 <div class="module-editor" ng-repeat="module in modules">
-                    <div class="panel panel-default" ng-controller="QuizEditorController as quiz" ng-init="init($index)
-                         ng-show="question.type == 'Multiple Choice'">
+                    <div class="panel panel-default" ng-controller="QuizEditorController as quiz" ng-init="init($index)"
+                         ng-show="module.type == 'quiz'">
                         <div class="panel-heading">
                             <a class="panel-title accordion-toggle" data-toggle="collapse" data-parent=".module-editor" href="#collapseModule{{$index}}">{{ $index+1 }}. Quiz</a>
                         </div>
@@ -15,14 +18,13 @@
                             <div class="form-group">
                                 <label>Title</label>
                                 <input type="text" class="form-control" placeholder="e.g. 'Comparison operator review'"
-                                       ng-model="quiz.title" value="{{ quiz.title }}">
+                                       ng-model="quiz.title">
                             </div>
                             <div class="form-group">
                                 <label>Instructions</label>
                                 <textarea class="form-control" rows="3"
                                           placeholder="e.g. 'Last time we discussed how to compare numbers. Do you remember which symbols we use for each comparison?'"
-                                          ng-model="quiz.instructions"
-                                          value="{{ quiz.instructions }}"></textarea>
+                                          ng-model="quiz.instructions"></textarea>
                             </div>
                             <div class="questions">
                                 <label>Questions</label>
@@ -45,20 +47,18 @@
                                             <label>Question Body</label>
                                             <input type="text" class="form-control"
                                                    placeholder="e.g. 'How many cups in a quart?'"
-                                                   ng-model="question.body" value="{{ question.body }}">
+                                                   ng-model="question.body">
                                         </div>
                                         <div class="form-group">
                                             <label>Secondary Text</label>
                                             <textarea class="form-control"
                                                       placeholder="e.g. 'How many cups in a quart?'"
-                                                      ng-model="question.secondary_text"
-                                                      value="{{ question.secondary_text }}"></textarea>
+                                                      ng-model="question.secondary_text"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Image</label>
                                             <input type="text" class="form-control"
-                                                   placeholder="a link to the desired image" ng-model="question.image"
-                                                   value="{{ question.image }}">
+                                                   placeholder="a link to the desired image" ng-model="question.imageURL">
                                         </div>
 
                                         <div class="form-group" ng-show="question.type === 'True/False'">
@@ -89,7 +89,7 @@
                                             <div class="form-group">
                                                 <label>Correct Answer</label>
                                                 <select class="form-control" ng-model="question.correct_answer">
-                                                    <option ng-repeat="choice in question.choices">{{ choice }}</option>
+                                                    <option ng-repeat="choice in question.choices track by $index">{{ choice }}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -121,6 +121,70 @@
                             JSON Data: {{ quiz }}
                         </div>
                     </div>
+
+
+
+                    <div class="panel panel-default" ng-controller="LectureEditorController as lecture" ng-init="init($index)"
+                         ng-show="module.type == 'lecture'">
+                        <div class="panel-heading">
+                            <a class="panel-title accordion-toggle" data-toggle="collapse" data-parent=".module-editor" href="#collapseModule{{$index}}">{{ $index+1 }}. Lecture</a>
+                        </div>
+                        <div class="panel-body" id="collapseModule{{$index}}">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" class="form-control" placeholder="e.g. 'Comparison operator review'"
+                                       ng-model="lecture.title" value="{{ lecture.title }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Lecture Body</label>
+                                <textarea class="form-control" rows="3"
+                                          placeholder="#You can use **markdown** here"
+                                          ng-model="lecture.body"
+                                          value="{{ lecture.body }}"></textarea>
+                            </div>
+
+                            {{$scope}}
+                            <br/>
+                            JSON Data: {{ lecture }}
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default" ng-controller="CodeExerciseEditorController as code" ng-init="init($index)"
+                         ng-show="module.type == 'code'">
+                        <div class="panel-heading">
+                            <a class="panel-title accordion-toggle" data-toggle="collapse" data-parent=".module-editor" href="#collapseModule{{$index}}">{{ $index+1 }}. Code Exercise</a>
+                        </div>
+                        <div class="panel-body" id="collapseModule{{$index}}">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" class="form-control" placeholder="e.g. 'Comparison operator review'"
+                                       ng-model="code.title" value="{{ code.title }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Instructions</label>
+                                <textarea class="form-control" rows="3"
+                                          placeholder="#You can use **markdown** here"
+                                          ng-model="code.body"
+                                          value="{{ code.body }}"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Starter Code</label>
+                                <textarea class="form-control" rows="3"
+                                          placeholder="e.g. <html><head></head></html>"
+                                          ng-model="code.starter_code"
+                                          value="{{ code.starter_code }}"></textarea>
+                            </div>
+
+                            <div class="form-group">
+
+                            </div>
+
+                            {{$scope}}
+                            <br/>
+                            JSON Data: {{ code }}
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="btn-group">
@@ -135,7 +199,7 @@
                 </div>
 
                 <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-success">
+                    <button type="button" class="btn btn-default btn-success" ng-click="save()">
                         Save
                     </button>
                 </div>
@@ -144,10 +208,10 @@
     </div>
     <div class="col-md-6" ng-controller="ModulesPreviewController">
         <h1>Session Preview</h1>
-        <div class="panel panel-default" ng-repeat="module in modules">
-            <div ng-show="module.type == 'quiz'">
+        <div class="modulePreview" ng-repeat="module in modules">
+            <div ng-show="module.type == 'quiz'" class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Quiz {{ $index + 1 }}</h3>
+                    <h3 class="panel-title">{{ $index + 1 }}. Quiz</h3>
                 </div>
                 <div class="panel-body">
                     <h2>{{ module.title || 'Untitled Quiz' }}</h2>
@@ -160,7 +224,7 @@
                         <div class="panel-body">
                             <h4>{{ question.body || 'Blank Question' }}</h4>
                             <small>{{ question.secondary_text }}</small>
-                            <img class="img-responsive question-image" src="{{ question.image }}" />
+                            <img class="img-responsive question-image" src="{{ question.imageURL}}" />
 
                             <div ng-show="question.type == 'True/False'">
                                 <div class="radio">
@@ -203,7 +267,42 @@
                     </div>
                 </div>
             </div>
+
+            <div ng-show="module.type == 'lecture'" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ $index + 1 }}. Lecture Item</h3>
+                </div>
+                <div class="panel-body">
+                    <h2>{{ module.title || 'Untitled Lecture Item' }}</h2>
+                    <p>{{ module.body || 'No lecture content :(' }}</p>
+
+                    <div class="form-group">
+                        <button class="btn btn-success">I understand</button>
+                        <button class="btn btn-danger">I don't understand</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div ng-show="module.type == 'code'" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ $index + 1 }}. Code Exercise</h3>
+                </div>
+                <div class="panel-body">
+                    <h2>{{ module.title || 'Untitled Code Exercise' }}</h2>
+                    <p>{{ module.body || '' }}</p>
+
+                    <div class="codePreview">
+                        {{ module.starter_code || '' }}
+                    </div>
+
+                </div>
+            </div>
+
         </div>
+    </div>
         {{ modules }}
     </div>
 </div>
+
+<script src="/js/session_editor.js"></script>
