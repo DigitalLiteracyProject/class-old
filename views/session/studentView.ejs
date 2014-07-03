@@ -1,1 +1,39 @@
-Student view
+<div class="col-md-12 studentView" ng-app="StudentView">
+    <h1>Student View</h1>
+    <div class="col-md-3">
+        <div class="panel panel-default student-messages-box" ng-controller="MessagesController">
+            <div class="panel-heading">
+                Messages
+            </div>
+            <div class="panel-body">
+                <div class="student-messages-body">
+                    <ul>
+                        <li ng-repeat="message in messages track by $index">{{ message }}</li>
+                    </ul>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="student-box-input form-control" ng-model="inputtedMessage"/>
+                    <input class="btn btn-lg btn-success" type="submit" value="Send" ng-click="sendMessage(inputtedMessage)"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default student-modules-overview" ng-controller="ModulesOverview">
+            <div class="panel-heading">
+                Today's Modules
+            </div>
+
+            <div class="panel-body">
+                <ul>
+                    <li ng-repeat="module in modules" class="{{ active_module == $index ? 'modules-overview-active' : '' }}">{{ module.title }} ({{ module.type }})</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9 student-view-body">
+        Stuff goes here
+    </div>
+</div>
+<script src="/js/student_view.js"></script>

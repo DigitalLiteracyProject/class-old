@@ -150,6 +150,40 @@ a.accordion-toggle:after {
     content: "\f104";
 }
 
+/* Student View */
+.student-messages-box {
+  height: 300px;
+}
+
+.student-messages-body {
+  overflow: scroll;
+  position: relative;
+  height: 100%;
+}
+
+.student-box-input {
+  position: relative;
+  bottom: 0;
+}
+
+.student-modules-overview {
+
+}
+
+.student-modules-overview li{
+  color: gray;
+}
+
+.modules-overview-past {
+  color: red;
+  font-weight: bold;
+}
+
+.modules-overview-active {
+  color: red;
+  font-weight: bold;
+}
+
 /* Edit Below to Customize Widths > 768px */
 @media (min-width:768px) {
 

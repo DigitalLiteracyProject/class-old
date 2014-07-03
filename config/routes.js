@@ -71,7 +71,8 @@ module.exports.routes = {
   // Test views
   'get /test/attention': 'MainController.attention',
 
-  'get /quiz/take': 'MainController.take_quiz'
+  'get /quiz/take': 'MainController.take_quiz',
+  'get /session/student': 'SessionController.studentView',
 
 
 

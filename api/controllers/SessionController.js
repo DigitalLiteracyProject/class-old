@@ -28,6 +28,10 @@ module.exports = {
     console.log(req.params.id);
     res.view('session/edit', {params: req.params});
   },
+
+  studentView: function(req, res){
+    res.view('session/studentView');
+  },
     
   
 
