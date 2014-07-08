@@ -13,7 +13,7 @@ module.exports = {
       User.find().where({ id: users }).exec(function(err, user_data){
         res.view('classroom/show', {users: user_data, classroom: classroom});
       });
-    })
+    });
   },
 
   list: function(req, res){
@@ -34,7 +34,14 @@ module.exports = {
           res.view('classroom/edit', {classroom: classroom, students: students, teachers: teachers, sessions: sessions});
         });
       });
-    })
+    });
+  },
+
+  new: function(req, res){
+    Classroom.new({name: 'Test Classroom'}).done(function(err, classroom){
+      if(err) throw err;
+      res.redirect('/classroom/' + classroom.id + '/edit');
+    });
   },
 
   update: function(req, res){
