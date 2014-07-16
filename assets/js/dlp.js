@@ -134,9 +134,4 @@ $(function(){
 
     setInterval(autosave, autosave_interval);
 
-    // socket testing
-    socket.on('news', function(data){
-        console.log('data');
-        socket.emit('other-event', {my: 'data'});
-    });
 });

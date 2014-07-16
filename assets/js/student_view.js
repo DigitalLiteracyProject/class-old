@@ -1,6 +1,18 @@
 (function(){
     var app = angular.module('StudentView', []);
 
+    socket.on('connect', function socketConnected(){
+        console.log('Socket connected with sessionID: ' + this.socket.sessionid);
+
+        socket.get('classroom/subscribe/' + classroomID, function gotResponse(){
+            console.log();
+        });
+
+        socket.on('message', function messageReceived(message){
+
+        });
+    });
+
     app.controller('MessagesController', function($scope){
         $scope.messages = [];
 
@@ -8,7 +20,9 @@
             if(message.length > 0){
                 $scope.messages.push(message);
                 $scope.inputtedMessage = '';
+
                 // push the event here
+                socket.emit()
             }
         }
 

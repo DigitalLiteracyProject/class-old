@@ -156,8 +156,7 @@ a.accordion-toggle:after {
 }
 
 .student-messages-body {
-  overflow: scroll;
-  position: relative;
+  /*overflow: scroll;*/
   height: 100%;
 }
 
